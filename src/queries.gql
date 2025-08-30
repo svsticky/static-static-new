@@ -1,0 +1,21 @@
+query getOldestBoardName($limit: Int!, $locale: String!) {
+    boardCollection(limit: $limit, order: year_ASC, locale: $locale) {
+        items {
+            name
+        }
+    }
+}
+
+query getBoards($locale: String!) {
+    boardCollection(order: [year_DESC], locale: $locale) {
+        items {
+            name
+            members {
+                json
+            }
+            bestuursfoto {
+                url
+            }
+        }
+    }
+}

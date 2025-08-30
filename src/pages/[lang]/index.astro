@@ -1,0 +1,18 @@
+---
+import type { GetStaticPaths } from "astro";
+
+export const getStaticPaths = (() =>
+    [{ params: { lang: "nl-NL" } }, { params: { lang: "en-US" } }]
+) satisfies GetStaticPaths;
+
+import sdkFactory from "../../graphql/sdk";
+const sdk = sdkFactory(Astro.params.lang);
+
+const oldestBoard = await sdk.getOldestBoardName({
+    limit: 10
+});
+const allBoards = await sdk.getBoards();
+---
+
+{ oldestBoard.boardCollection?.items.at(0) ?? "no boards" }
+{ JSON.stringify(allBoards.boardCollection?.items) }
