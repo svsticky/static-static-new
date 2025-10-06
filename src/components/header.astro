@@ -1,0 +1,177 @@
+---
+
+---
+
+<header>
+    <div class="header-background background-top"></div>
+    <div class="header-background background-bottom"></div>
+    <div class="hero">
+        <div class="carousel">
+            {
+                    <div class="carousel-item">
+                        <img
+                            src="https://intro.svsticky.nl/assets/preloaded/d1288181-f1dd-499a-aa10-be5bc6f46395_o.jpg"
+                            alt=""
+                        />
+                        <p>
+                            <strong>Foto:</strong>
+                        </p>
+                    </div>
+            }
+        </div>
+        <div
+            class="hero-text"
+        >
+            <h1>Website yeah</h1>
+            <p>
+                COnjo
+            </p>
+        </div>
+    </div>
+</header>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const items: HTMLDivElement[] = Array.from(
+            document.querySelectorAll(".carousel-item"),
+        );
+        let currentIndex = 0;
+
+        setInterval(() => {
+            const oldIndex = currentIndex;
+            currentIndex = (currentIndex + 1) % items.length;
+            for (let i = 0; i < items.length; i++) {
+                if (i === oldIndex) {
+                    items[oldIndex].style.transform =
+                        window.innerWidth >= 650
+                            ? "translateX(-80vw)"
+                            : "translateX(-100vw)";
+                    setTimeout(() => {
+                        items[i].style.display = "none";
+                        items[i].style.transform =
+                            window.innerWidth >= 650
+                                ? "translateX(80vw)"
+                                : "translateX(100vw)";
+                        setTimeout(
+                            () => (items[i].style.display = "block"),
+                            1500,
+                        );
+                    }, 1500);
+                } else if (i === currentIndex) {
+                    items[currentIndex].style.transform = "translateX(0)";
+                }
+            }
+        }, 4000);
+    });
+</script>
+
+<style lang="scss">
+
+    header {
+        height: calc(100vh - 6rem);
+        width: 100vw;
+        color: white;
+        position: relative;
+
+        .header-background {
+            display: none;
+            background: #61518f;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            --bg-height: 60%;
+
+            &.background-top {
+                height: var(--bg-height);
+            }
+
+            &.background-bottom {
+                top: calc(var(--bg-height) - 10%);
+                height: 20%;
+                clip-path: ellipse(70% 50%);
+            }
+        }
+
+        .hero {
+            width: 100%;
+            height: 100%;
+            position: relative;
+
+            .carousel {
+                overflow: hidden;
+                display: grid;
+                position: relative;
+
+                .carousel-item {
+                    transform: translateX(100vw);
+                    transition: transform 1.5s ease-in-out;
+                    grid-area: 1 / 1;
+
+                    &:first-of-type {
+                        transform: translateX(0);
+                    }
+
+                    img {
+                        width: 100vw;
+                        height: calc(100vh - 6rem);
+                        object-fit: cover;
+                        filter: brightness(75%);
+                    }
+
+                    p {
+                        position: absolute;
+                        bottom: 1rem;
+                        right: 2rem;
+                        font-size: 0.75rem;
+                    }
+                }
+            }
+
+            .hero-text {
+                position: absolute;
+                top: 0;
+                left: 0;
+                padding: 2vw;
+                text-shadow: 1.25px 1.25px #82807d;
+            }
+        }
+    }
+
+    @media screen and (min-width: 650px) {
+        header {
+            height: 60vh;
+
+            .header-background {
+                display: block;
+            }
+
+            .hero {
+                width: 80vw;
+                margin: 0 auto;
+
+                .carousel {
+                    border-radius: 1rem;
+                    overflow: hidden;
+                    box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.3);
+
+                    .carousel-item {
+                        transform: translateX(80vw);
+                        height: 60vh;
+                        width: 80vw;
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                }
+
+                .hero-text {
+                    width: 50%;
+                }
+            }
+        }
+    }
+</style>

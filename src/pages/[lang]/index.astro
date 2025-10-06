@@ -12,7 +12,99 @@ const oldestBoard = await sdk.getOldestBoardName({
     limit: 10
 });
 const allBoards = await sdk.getBoards();
+
+import Nav from "../../components/nav.astro";
+import Header from "../../components/header.astro";
+import Footer from "../../components/footer.astro";
 ---
 
-{ oldestBoard.boardCollection?.items.at(0) ?? "no boards" }
-{ JSON.stringify(allBoards.boardCollection?.items) }
+<!-- <Layout> -->
+ <html>
+    <body>
+<Nav />
+    <Header />
+    <main>
+        <h1>Welkom op de dikke conjowebsite!</h1>
+    </main>
+    <Footer />
+    </body>
+
+ </html>
+    
+<!-- </Layout> -->
+
+<style lang="scss" is:global>
+
+    p {
+        margin-bottom: 1rem;
+    }
+
+    h1 {
+        font-size: clamp(2rem, 5vw, 2.5rem);
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+    h2 {
+        font-size: clamp(1.75rem, 4.5vw, 2rem);
+        margin-top: .5rem;
+        margin-bottom: .5rem;
+    }
+    h3 {
+        font-size: clamp(1.5rem, 4vw, 1.5rem);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        hyphens: auto;
+
+        > strong, > b {
+            color: #61518f;
+            font-weight: bold;
+        }
+    }
+
+    a {
+        color: #61518f;
+    }
+
+    /* PAGE LAYOUT STYLES */
+
+    #signup ~ * {
+        z-index: 20;
+    }
+
+    main {
+        width: 90vw;
+        max-width: 1200px;
+        margin: 0 auto;
+        overflow: visible;
+        line-height: 1.4;
+        color: #242424;
+
+        > section {
+            position: relative;
+        }
+    }
+
+    @media screen and (min-width: 800px) {
+        main {
+            width: 75vw;
+        }
+    }
+
+    li {
+        p {
+            margin-top: 0;
+            margin-bottom: .5rem;
+        }
+    }
+
+    html,body {
+        margin: 0;
+        padding: 0;
+    }
+</style>

@@ -18,6 +18,7 @@
     "@graphql-codegen/typescript": "^4.1.6",
     "@graphql-codegen/typescript-graphql-request": "^6.3.0",
     "@graphql-codegen/typescript-operations": "^4.6.1",
-    "@parcel/watcher": "^2.5.1"
+    "@parcel/watcher": "^2.5.1",
+    "sass-embedded": "^1.93.2"
   }
 }
