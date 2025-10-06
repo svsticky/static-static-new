@@ -1,0 +1,29 @@
+---
+import "@fontsource/outfit";
+const pageTitle = "Sticky";
+---
+<!doctype html>
+<html lang="nl">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{pageTitle}</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    </head>
+    <body>
+        <slot />
+    </body>
+</html>
+
+<style is:global>
+    html,
+    body {
+        margin: 0;
+        width: 100%;
+        height: auto;
+        font-family: "Outfit Variable", "Arial", "sans-serif";
+        overflow-x: hidden;
+    }
+</style>
+

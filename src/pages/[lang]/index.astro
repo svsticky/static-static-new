@@ -16,22 +16,17 @@ const allBoards = await sdk.getBoards();
 import Nav from "../../components/nav.astro";
 import Header from "../../components/header.astro";
 import Footer from "../../components/footer.astro";
+import Layout from "../../components/layout.astro";
 ---
 
-<!-- <Layout> -->
- <html>
-    <body>
-<Nav />
+<Layout>
+    <Nav />
     <Header />
     <main>
-        <h1>Welkom op de dikke conjowebsite!</h1>
+        <h1>Welkom op de dikke <b>conjowebsite!</b></h1>
     </main>
     <Footer />
-    </body>
-
- </html>
-    
-<!-- </Layout> -->
+</Layout>
 
 <style lang="scss" is:global>
 

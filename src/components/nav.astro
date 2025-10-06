@@ -4,12 +4,12 @@
         alt="Logo SV Sticky"
     />
     <ul>
-        <li><a href="#info">Over de introductie</a></li>
-        <li><a href="#signup">Inschrijven</a></li>
-        <li><a href="#theme">Thema</a></li>
-        <li><a href="#sticky">Over Sticky</a></li>
-        <li><a href="#FAQ">FAQ</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li class="dropdown"><a href="#info">Vereniging</a></li>
+        <li class="dropdown"><a href="#signup">Studie</a></li>
+        <li class="dropdown"><a href="#theme">Carrière</a></li>
+        <li class="dropdown"><a href="#linkjus">Links</a></li>
+        <li class="button"><a href="https://koala.svsticky.nl">Koala</a></li>
+        <li class="button"><a href="https://wordlid.svsticky.nl">Word lid!</a></li>
     </ul>
     <a id="nav-icon">&#9776;</a>
 </nav>
@@ -63,6 +63,26 @@
                     text-decoration: none;
                     opacity: 0.8;
                     transform: translateY(-3px);
+                }
+            }
+
+            li.button {
+                a {
+                    background: #ffffff;
+                    color: #61518f;
+                    padding: 0.35rem 0.9rem;
+                    border-radius: 10px;
+                    font-weight: 600;
+                    box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+                    transition: transform 0.15s ease, opacity 0.15s ease;
+                    text-decoration: none;
+                    display: inline-block;
+                }
+
+                a:hover {
+                    opacity: 0.95;
+                    transform: translateY(-2px);
+                    text-decoration: none;
                 }
             }
         }
