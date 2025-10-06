@@ -1,0 +1,8 @@
+---
+import type { GetStaticPaths } from "astro";
+
+export const getStaticPaths = (() =>
+    [{ params: { lang: "nl-NL" } }, { params: { lang: "en-US" } }]
+) satisfies GetStaticPaths;
+
+---
